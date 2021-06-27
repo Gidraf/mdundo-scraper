@@ -1,4 +1,5 @@
 import setuptools
+from setuptools import Extension
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -7,7 +8,8 @@ setuptools.setup(
     name='mdundo-scraper',
     description='Get songs data in json format from mdundo.com site with ease inspired by https://soundcloud-scraper.js.org/ ',
     long_description=long_description,
-    version='0.0.1',
+    long_description_content_type='text/markdown',
+    version='0.0.2',
     url='https://github.com/Gidraf/mdundo-scraper',
     license='BSD-2',
     author='Gidraf Orenja',
