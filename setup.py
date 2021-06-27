@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='mdundo-scraper',
-    description='Get songs data in json from mdundo.com site with ease inspired by https://soundcloud-scraper.js.org/ ',
+    description='Get songs data in json format from mdundo.com site with ease inspired by https://soundcloud-scraper.js.org/ ',
     long_description=long_description,
     version='0.0.1',
     url='https://github.com/Gidraf/mdundo-scraper',
