@@ -44,12 +44,13 @@ class Artist:
             results = []
             for song in all_songs:
                 item = {}
-                item["source"] = song.find("a",class_ = "btn btn-download")["href"]
+                item["download_url"] = song.find("a",class_ = "btn btn-download")["href"]
                 item["artist"] = song.find("span", class_="song-author").text
                 item["genre"] = song.find("div",class_= "song-genre").text.split("/")[0].replace("#","").strip()
                 item["title"] = song.find("span",class_="song-title").text
                 item["image"] = artist_image
-                item["id"] = item["source"].split("/")[-1]
+                item["source"] = song.find("a",class_ = "btn btn-play stream_play")["alt"]
+                item["id"] = item["download_url"].split("/")[-1]
                 results.append(item)
             return {"result":results,"count":len(results)}
         return []
