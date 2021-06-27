@@ -17,12 +17,13 @@ class Chart:
         results = []
         for song in weekly_top_100:
             item = {}
-            item["source"] = song.find("a",class_ = "btn btn-download")["href"]
+            item["download_url"] = song.find("a",class_ = "btn btn-download")["href"]
             item["artist"] = song.find("span", class_="song-author").text.split(".",1)[1].strip()
             item["genre"] = song.find("div",class_= "song-genre").text.split("/")[0].replace("#","").strip()
             item["title"] = song.find("span",class_="song-title").text
             item["image"] = "https://picsum.photos/200"
-            item["id"] = item["source"].split("/")[-1]
+            item["source"] = song.find("a",class_ = "btn btn-play stream_play")["alt"]
+            item["id"] = item["download_url"].split("/")[-1]
             results.append(item)
         
         return {"result":results,"count":len(results)}
@@ -35,11 +36,12 @@ class Chart:
         results = []
         for song in monthly_top:
             item = {}
-            item["source"] = song.find("a",class_ = "btn btn-download")["href"]
+            item["download_url"] = song.find("a",class_ = "btn btn-download")["href"]
             item["artist"] = song.find("span", class_="song-author").text.split(".",1)[1].strip()
             item["genre"] = song.find("div",class_= "song-genre").text.split("/")[0].replace("#","").strip()
             item["title"] = song.find("span",class_="song-title").text
-            item["id"] = item["source"].split("/")[-1]
+            item["id"] = item["download_url"].split("/")[-1]
+            item["source"] = song.find("a",class_ = "btn btn-play stream_play")["alt"]
             item["image"] = "https://picsum.photos/200"
             results.append(item)
         return {"result":results,"count":len(results)}
@@ -52,11 +54,12 @@ class Chart:
         results = []
         for song in new_releses_song:
             item = {}
-            item["source"] = song.find("a",class_ = "btn btn-download")["href"]
+            item["download_url"] = song.find("a",class_ = "btn btn-download")["href"]
             item["artist"] = song.find("span", class_="song-author").text
             item["genre"] = song.find("div",class_= "song-genre").text.split("/")[0].replace("#","").strip()
             item["title"] = song.find("span",class_="song-title").text
-            item["id"] = item["source"].split("/")[-1]
+            item["id"] = item["download_url"].split("/")[-1]
+            item["source"] = song.find("a",class_ = "btn btn-play stream_play")["alt"]
             item["image"] = "https://picsum.photos/200"
             results.append(item)
         return {"result":results,"count":len(results)}

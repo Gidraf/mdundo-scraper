@@ -25,7 +25,6 @@ class Genre:
                 results.append(item)
         return {"result":results,"count":len(results)}
 
-
     def get_genre_top_songs(self, genre_id):
         if not genre_id or not genre_id.isnumeric():
             raise ValueError("Invalid Id")
@@ -37,11 +36,12 @@ class Genre:
             results = []
             for song in genre_songs:
                 item = {}
-                item["source"] = song.find("a",class_ = "btn btn-download")["href"]
+                item["download_url"] = song.find("a",class_ = "btn btn-download")["href"]
                 item["artist"] = song.find("span", class_="song-author").text.split(".",1)[1].strip()
                 item["genre"] = song.find("div",class_= "song-genre").text.split("/")[0].replace("#","").strip()
                 item["title"] = song.find("span",class_="song-title").text
-                item["id"] = item["source"].split("/")[-1]
+                item["id"] = item["download_url"].split("/")[-1]
+                item["source"] = song.find("a",class_ = "btn btn-play stream_play")["alt"]
                 results.append(item)
             return {"result":results,"count":len(results)}
         return []
