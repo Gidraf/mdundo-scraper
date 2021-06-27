@@ -9,7 +9,7 @@ setuptools.setup(
     description='Get songs data in json format from mdundo.com site with ease inspired by https://soundcloud-scraper.js.org/ ',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.0.2',
+    version='0.0.5',
     url='https://github.com/Gidraf/mdundo-scraper',
     license='BSD-2',
     author='Gidraf Orenja',
